@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Vista formulario para libros -->
+       <record id="libros_form_view" model="ir.ui.view">
+        <field name="name">libro.form.view</field>
+        <field name="model">libros</field>
+        <field name="arch" type="xml">
+            <form string="libro">
+                <header>
+                    <button name="boton_publicar" string="Publicar" type="object" states="draft" class="oe_highlight"/>
+                    <button name="boton_borrador" string="Borrado" type="object" states="published"/>
+                    <field name="state" widget="statusbar" /> <!-- options="{'clickable':1}" Sin la opcion 'clickable' el estado en la barra no se podría cambiar -->
+                </header>
+                <sheet>
+                    <group col="1">
+                        <field name="image" widget="image" class="oe_left oe_avatar" nolabel="1"/>
+                    </group>
+                    <group col="2"> <!-- 12 columnas de bootstrap-->
+                        <group col="2" colspan="2"> <!-- 6 columnas-->
+                            <field name="supervisor_id" domain="[('is_supervisor', '=', True)]"/> <!-- domain es como el where en sql, son tipo lista  ['|',('is_supervisor', '=', True)] or y and ['&',('is_supervisor', '=', True)]-->
+                            <field name="name"/>
+                            <field name="editorial"/>
+                            <field name="isbn"/>
+                            <field name="autor_id"/>
+                            <field name="lastname_autor"/>
+                            <field name="categoria_id"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+
+            </form>
+        </field>
+       </record>
+       <!-- Vista de arbol -->
+       <!-- 
+
+           lista de decoradores:
+           decoration-muted: grey
+           decoration-danger: red
+           decoration-success: green
+           decoration-primary: purple
+           decoration-info: blue
+           decoration-warning: brown
+           decoration-bf: bold
+           decoration-it: Italic
+
+        -->
+       <record id="libros_tree_view" model="ir.ui.view">
+            <field name="name">libro.tree.view</field>
+            <field name="model">libros</field>
+            <field name="arch" type="xml">
+                <tree string="Libros" decoration-info="state == 'draft'" decoration-success="state == 'published'">
+                    <field name="supervisor_id"/>
+                    <field name="name"/>
+                    <field name="editorial" optional="show"/> <!-- optional="hide" o "show" opcional para mostrarse o no -->
+                    <field name="isbn" optional="show"/>
+                    <field name="autor_id" optional="show"/>
+                    <field name="categoria_id" optional="show"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state == 'published'"/> <!-- Tiene varios tipos de decoracion decoration-muteddanger-->
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Vista kanban personalizada-->
+        <record id="libros_kanban_view" model="ir.ui.view">
+            <field name="name">libro.kanban.view</field>
+            <field name="model">libros</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/> <!-- id lo crea por defecto en la base de datos -->
+                    <field name="name"/>
+                    <field name="editorial"/>
+                    <field name="isbn"/>
+                    <field name="autor_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('libros','image',record.id.raw_value)" alt="Image"/> <!-- funcion java script-->
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title oe_partner_heading">
+                                                <field name="name"/>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+
+       </record>
+        <!-- Vista búsqueda personalizada-->
+       
+
+    </odoo>
