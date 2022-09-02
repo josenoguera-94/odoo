@@ -11,7 +11,7 @@ services:
       - data:/var/lib/odoo
       - ./addons:/mnt/extra-addons
       - ./config:/etc/odoo
-    entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf -u prim_modulo"
+    entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf -u prim_modulo,custom_crm"
   postgres:
     image: postgres:13
     env_file: .env
