@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
       <record model="custom_crm.visit" id="visit0" >
-        <field name="name">Visita importada demo</field>
+        <field name="name">Visita importada data</field>
         <field name="customer">Cliente importado</field>
         <field name="date">2023-02-03</field>
         <field name="type">P</field>
         <field name="done">0</field>
       </record>
       <record model="custom_crm.visit" id="visit1" >
-        <field name="name">Visita importada demo</field>
+        <field name="name">Visita importada jika</field>
         <field name="customer">Cliente importado</field>
-        <field name="date">2023-02-03</field>
+        <field name="date">2022-02-03</field>
+        <field name="type">P</field>
+        <field name="done">0</field>
+      </record>
+      <record model="custom_crm.visit" id="visit2" >
+        <field name="name">Visita importada peka</field>
+        <field name="customer">Cliente</field>
+        <field name="date">2022-01-03</field>
         <field name="type">P</field>
         <field name="done">0</field>
       </record>
 </odoo>
-
-<!-- CON DEMO NO FUNCIONO, FUNCIONO CON DATA.XML -->
