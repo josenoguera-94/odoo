@@ -7,7 +7,7 @@ class visit(models.Model):
     _description = 'Visit' # Model description
 
     name = fields.Char(string='Descripción') # Field name suele pintarse en el formulario en el encabezado de la vista
-    customer = fields.Char(string='Cliente')
+    customer = fields.Many2one(string='Cliente', comodel_name='res.partner') # Field customer
     date = fields.Datetime(string='Fecha')
     type = fields.Selection([('P', 'Presencial'), ('W', 'WhatsApp'), ('T', 'Telefónico')], string='Tipo', required=True)
     done = fields.Boolean(string='Realizada', readonly=True)

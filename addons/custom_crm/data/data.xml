@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-      <record model="custom_crm.visit" id="visit0" >
+      <!-- <record model="custom_crm.visit" id="visit0" >
         <field name="name">Visita importada data</field>
         <field name="customer">Cliente importado</field>
         <field name="date">2023-02-03</field>
@@ -20,5 +20,5 @@
         <field name="date">2022-01-03</field>
         <field name="type">P</field>
         <field name="done">0</field>
-      </record>
+      </record> -->
 </odoo>
