@@ -12,7 +12,8 @@ class visit(models.Model):
     type = fields.Selection([('P', 'Presencial'), ('W', 'WhatsApp'), ('T', 'Telefónico')], string='Tipo', required=True)
     done = fields.Boolean(string='Realizada', readonly=True)
 
-
+    def button_toggle_state(self):
+        self.done = not self.done
 
 
 # class custom_crm(models.Model):
