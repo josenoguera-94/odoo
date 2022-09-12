@@ -11,6 +11,7 @@ class visit(models.Model):
     date = fields.Datetime(string='Fecha')
     type = fields.Selection([('P', 'Presencial'), ('W', 'WhatsApp'), ('T', 'Telefónico')], string='Tipo', required=True)
     done = fields.Boolean(string='Realizada', readonly=True)
+    image = fields.Binary(string='Imagen') # para la vista kanban
 
     def button_toggle_state(self):
         self.done = not self.done
