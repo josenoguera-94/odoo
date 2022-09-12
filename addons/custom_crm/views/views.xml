@@ -84,6 +84,27 @@
       </field>
   </record>
 
+<record id="view_custom_crm_visit_search" model="ir.ui.view">   <!-- vista de busqueda -->
+  <field name="name">view.custom.crm.visit.search</field>
+  <field name="model">custom_crm.visit</field>
+  <field name="arch" type="xml">
+      <search string="Filtrar visitas"> <!-- string es el titulo de la vista -->
+          <field name="name"/>
+          <field name="customer"/>
+          <field name="type"/>
+          <field name="date"/>
+          <group expand="0" string="Group By"> <!-- agrupaciones de búquedas -->
+              <filter name="groupby_type" string="Tipo" domain="[]" context="{'group_by':'type'}"
+                      help="Agrupar por tipo"/> <!-- agrupar por tipo, en el domain se le pasa un array de tuplas [('done', '=', True), ()...] -->
+              <filter name="groupby_date" string="Fecha" context="{'group_by':'date:year'}"
+                      help="Agrupar por fecha"/>
+          </group>
+          <filter name="filter_by_done" string="Realizada" domain="[('done','=','True')]"
+                  help="Visitas realizadas"/>
+      </search>
+  </field>
+</record>
+
     <record id="action_custom_crm_visit_view" model="ir.actions.act_window">   <!-- vista de arbol -->
       <field name="name">Visita</field> <!-- nombre de la vista -->
       <field name="type">ir.actions.act_window</field> <!-- tipo de vista -->
