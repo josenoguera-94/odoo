@@ -43,6 +43,27 @@ class visit(models.Model):
         # visit = self.env['custom_crm.visit'].browse([8])
         visit.unlink()
 
+class VisitReport(models.AbstractModel): # AbstractModel es una clase abstracta
+    _name = 'report.custom_crm.report_visit_card'
+    _description = 'Visit Report'
+
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        report_obj = self.env['ir.actions.report']
+        report = report_obj._get_report_from_name('custom_crm.report_visit_card') # report_visit_card es el nombre del reporte
+        return {
+            'doc_ids': docids,
+            'doc_model': self.env['custom_crm.visit'],
+            'docs': self.env['custom_crm.visit'].browse(docids)
+        }
+        
+        # docs = self.env['custom_crm.visit'].browse(docids)
+        # return {
+        #     'doc_ids': docids,
+        #     'doc_model': 'custom_crm.visit',
+        #     'docs': docs,
+        # }
+
 # class custom_crm(models.Model):
 #     _name = 'custom_crm.custom_crm'
 #     _description = 'custom_crm.custom_crm'

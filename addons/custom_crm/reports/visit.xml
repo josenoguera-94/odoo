@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <report
+            id="custom_crm_visit_report"
+            string="Informe de visita"
+            model="custom_crm.visit"
+            report_type="qweb-pdf" 
+            name="custom_crm.report_visit_card"
+            file="custom_crm.report_visit_card"
+            attachment_use="True"
+        />
+    </data>
+</odoo>
+<!-- file nonm
+
+
+id="custom_crm_visit_report"
+string="Informe de visita"
+model="custom_crm.visit"
+report_type="qweb-pdf" 
+name="custom_crm.report_visit_card"
+file="custom_crm.report_visit_card" # nombre del archivo
+attachment_use="True"
+attachment=""
+print_report_name="'Visit Report'"
+-->
