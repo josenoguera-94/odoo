@@ -77,3 +77,11 @@ class VisitReport(models.AbstractModel): # AbstractModel es una clase abstracta
 #     def _value_pc(self):
 #         for record in self:
 #             record.value2 = float(record.value) / 100
+
+# Ampliando funcionalidad de un modelo existente
+class CustomSaleOrder(models.Model):
+    _inherit = 'sale.order' # Herencia de la clase sale.order
+
+    visit = fields.Many2one(string='Visita', comodel_name='custom_crm.visit')
+
+    zone = fields.Selection([('N', 'Norte'), ('S', 'Sur'), ('E', 'Este'), ('O', 'Oeste')], string='Zona')
