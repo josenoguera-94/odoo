@@ -127,7 +127,19 @@
             
     </record>
 
-    <menuitem id="menu_custom_crm_root" name="Custom CRM"  sequence="10"/><!-- nivel 2 --> <!-- menuitem es un menu, parent es el menu padre parent="base.menu_custom_crm", sequence es la posicion del menu -->  
+    <record id="view_sale_order_form" model="ir.ui.view">
+      <field name="name">view.sale.order.form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/> <!-- hereda de la vista de formulario de pedidos de venta, nos permite extender d euna vista heredada, vista que intentamos sobreescribir -->
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after"> <!-- posiciona el campo despues de payment_term_id -->
+          <!-- <field name="zone" invisible="1"/> campo invisible -->
+          <field name="zone"/> <!-- campo invisible -->
+        </xpath>
+      </field>
+    </record>
+
+    <menuitem id="menu_custom_crm_root" name="Custom CRM"  web_icon="custom_crm,static/description/icon.png" sequence="10"/><!-- nivel 2 --> <!-- menuitem es un menu, parent es el menu padre parent="base.menu_custom_crm", sequence es la posicion del menu -->  
     <menuitem id="menu_custom_crm_visit_categoria" name="Operaciones" parent="menu_custom_crm_root" sequence="0"/><!-- nivel 2 --> <!-- action es la accion que se ejecuta al darle click action="action_custom_crm_visit_tree"  -->
     <menuitem id="menu_custom_crm_visit" name="Visitas" parent="menu_custom_crm_visit_categoria" sequence="0" action="action_custom_crm_visit_view" /><!-- nivel 3 --> <!-- action es la accion que se ejecuta al darle click action="action_custom_crm_visit_tree"  -->
 

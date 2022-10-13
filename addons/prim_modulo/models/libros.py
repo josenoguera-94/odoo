@@ -35,7 +35,7 @@ class Libros(models.Model):
     @api.depends("name", "isbn") # si no se ponde el depends el sistema lo calculara siempre. - este decorador con parametros hace que al actualizar el nombre sin darle guardar se calcule n tiempo real
     def _compute_description(self): 
 
-        self.description = self.name + " | " + self.isbn + " | " + self.autor_id.name + " | " + self.categoria_id.name
+        self.description = self.name #+ " | " + self.isbn + " | " + self.autor_id.name + " | " + self.categoria_id.name
 
     def boton_publicar(self):
         self.state = 'published'

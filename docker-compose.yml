@@ -10,7 +10,8 @@ services:
     volumes:
       - data:/var/lib/odoo
       - ./addons:/mnt/extra-addons
-      - ./enterprise:/mnt/extra-addons-enterprise
+      - ./third_addons:/mnt/third-addons
+      # - ./enterprise:/mnt/extra-addons-enterprise
       - ./config:/etc/odoo
     entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf -u prim_modulo,custom_crm"
   postgres:
