@@ -9,7 +9,7 @@ services:
       - "127.0.0.1:8069:8069"
     volumes:
       - data:/var/lib/odoo
-      - ./addons:/mnt/extra-addons
+      # - ./addons:/mnt/extra-addons para agregar addons
       - ./config:/etc/odoo
     entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf -u prim_modulo,custom_crm"
   postgres:
