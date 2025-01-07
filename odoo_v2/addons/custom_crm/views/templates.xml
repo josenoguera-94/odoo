@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+      <template id="report_visit_card"> <!-- el id coincide con visit.xml-->
+        <t t-call="web.html_container"> <!-- para convertir html en pdf-->
+          <t t-foreach="docs" t-as="o"> <!-- para iterar sobre todo los documetnos que se envien por el parametro docs -->
+            <t t-call="web.external_layout">
+              <div class="page">
+                    <h2>Visita</h2>
+                    <p>Cliente: <span t-field="o.customer.name"/></p>
+                    <p>Descripción: <span t-field="o.name"/></p>
+                    <p>Fecha: <span t-field="o.date" t-options='{"format": "dd/MM/yyyy"}'/></p> <!-- hay que definir el formato de la fecha ya que por defecto no es el que queremos-->
+              </div>
+            </t>
+          </t>
+        </t>
+
+      </template>
+    </data>
+</odoo>
+
+<!--
+        <template id="listing">
+          <ul>
+            <li t-foreach="objects" t-as="object">
+              <a t-attf-href="#{ root }/objects/#{ object.id }">
+                <t t-esc="object.display_name"/>
+              </a>
+            </li>
+          </ul>
+        </template>
+        <template id="object">
+          <h1><t t-esc="object.display_name"/></h1>
+          <dl>
+            <t t-foreach="object._fields" t-as="field">
+              <dt><t t-esc="field"/></dt>
+              <dd><t t-esc="object[field]"/></dd>
+            </t>
+          </dl>
+        </template>
+
+
+        <template id="report_visit_card">
+        <t t-call="web.html_container">
+          <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+              <div class="page">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <h2>Visit Report</h2>
+                    <div t-field="o.name"/>
+                    <div t-field="o.partner_id"/>
+                    <div t-field="o.user_id"/>
+                    <div t-field="o.date"/>
+                    <div t-field="o.description"/>
+                  </div>
+                </div>
+              </div>
+            </t>
+          </t>
+        </t>
+
+      </template>
+-->

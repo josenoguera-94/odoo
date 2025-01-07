@@ -1,0 +1,48 @@
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<odoo>
+    <data>
+
+      <template id="report_visit_card"> <!-- el id coincide con visit.xml-->
+        <t> <!-- para convertir html en pdf-->
+          <t> <!-- para iterar sobre todo los documetnos que se envien por el parametro docs -->
+            <t t-call="web.external_layout">
+              <div class="page">
+                    <h2>Visita</h2>
+                    <p>Cliente: </p>
+                    <p>Descripción: </p>
+                    <p>Fecha: </p>
+              </div>
+            </t>
+          </t>
+        </t>
+
+      </template>
+      <!-- <template id="assets_frontend" inherit_id="website.assets_frontend" name="library_website_assets">
+        <xpath expr="." position="inside">
+          <script type="text/javascript" src="/tercer_modulo/static/src/js/tercer_modulo.js"></script>
+          <link rel="stylesheet" href="/tercer_modulo/static/src/css/tercer_modulo.css"/>
+        </xpath>
+      </template> -->  <!-- Se sobreescribia de esta forma los css y js desde la v14 hacia atras, desde v15 se encuentra en manifest.py-->
+
+<!--
+        <template id="listing">
+          <ul>
+            <li t-foreach="objects" t-as="object">
+              <a t-attf-href="#{ root }/objects/#{ object.id }">
+                <t t-esc="object.display_name"/>
+              </a>
+            </li>
+          </ul>
+        </template>
+        <template id="object">
+          <h1><t t-esc="object.display_name"/></h1>
+          <dl>
+            <t t-foreach="object._fields" t-as="field">
+              <dt><t t-esc="field"/></dt>
+              <dd><t t-esc="object[field]"/></dd>
+            </t>
+          </dl>
+        </template>
+-->
+    </data>
+</odoo>

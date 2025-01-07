@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  odoo:
+    image: odoo:16
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./addons:/mnt/extra-addons
+      - ./config:/etc/odoo
+      # - ./data:/var/lib/odoo
+    entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
+    # entrypoint: "/usr/bin/odoo -i base -c /etc/odoo/odoo.conf" #Execute this command to migrate initial db
+    networks:
+      - odoo-network
+
+networks:
+  odoo-network:
+    external: true
