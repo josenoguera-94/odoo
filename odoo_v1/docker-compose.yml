@@ -9,7 +9,9 @@ services:
       - ./addons:/mnt/extra-addons
       - ./config:/etc/odoo
       # - ./data:/var/lib/odoo
-    entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf"
+    # command: >
+    #   bash -c "pip install requests"
+    entrypoint: "/usr/bin/odoo -c /etc/odoo/odoo.conf -u my_module,prim_modulo"
     # entrypoint: "/usr/bin/odoo -i base -c /etc/odoo/odoo.conf" #Execute this command to migrate initial db
     networks:
       - odoo-network

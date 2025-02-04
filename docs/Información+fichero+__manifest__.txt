@@ -1,0 +1,2 @@
+Podeis consultar todos los atributos a especificar en el archivo __manifest__.py a través del siguiente enlace:
+	- https://www.odoo.com/documentation/13.0/reference/module.html (Fuente oficial)
